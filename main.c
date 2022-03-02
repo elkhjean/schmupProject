@@ -13,17 +13,16 @@ int main(void) {
 	ioInit();
 	interrupts_and_timers_init();
 	
-	display_string(1, "Welcome");
-	display_string(2, "switch btn 4");
-	display_string(3, "to start!");
-	display_update;
+	display_image(0, display);
+	display_update();
+	display_string(0, "KTH/ICT lab");
+	display_string(1, "in Computer");
+	display_string(2, "Engineering");
+	display_string(3, "Welcome!");
+	display_update();
 	
-	while(state = 0)
-	{
-			if(getbtns() & 0x1 == 1)
-			state = 1;
-	}
-
+	initialize_player_sprite();
+	
 	while( 1 )
 	{
 	  gameWork();

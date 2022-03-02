@@ -149,6 +149,8 @@ const uint8_t const font[] = {
 char textbuffer[4][16];
 
 uint8_t display[512];
+uint8_t playerProjectileMap[512];
+uint8_t enemyProjectileMap[512];
 
 void quicksleep(int cyc) {
 	int i;
@@ -163,7 +165,7 @@ uint8_t spi_send_recv(uint8_t data) {
 }
 
 void display_init(void) {
-        DISPLAY_CHANGE_TO_COMMAND_MODE;
+  DISPLAY_CHANGE_TO_COMMAND_MODE;
 	quicksleep(10);
 	DISPLAY_ACTIVATE_VDD;
 	quicksleep(1000000);
@@ -185,6 +187,7 @@ void display_init(void) {
 	
 	spi_send_recv(0xA1);
 	spi_send_recv(0xC8);
+	
 	
 	spi_send_recv(0xDA);
 	spi_send_recv(0x20);
@@ -245,7 +248,7 @@ void display_update(void) {
 				continue;
 			
 			for(k = 0; k < 8; k++)
-				spi_send_recv(font[c*8 + k]);
+				spi_send_recv(~font[c*8 + k]);
 		}
 	}
 }

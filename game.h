@@ -20,17 +20,23 @@ int getbtns(void);
 int getsw(void);
 /* Declare initializers, functions and structs from gameWork.c */
 struct object {
+	int isPlayer;
 	int* x;
 	int* y;
 	int arrLength;
 };
 void interrupts_and_timers_init( void );
 void gameWork( void );
+void initialize_player_sprite();
 /* Declare functions from gameFunctions.c */
-void set_bit(int x, int y, uint8_t objectBits[]);
-void clr_bit(int x, int y, uint8_t objectBits[]);
-void move_sprite(int x, int y, struct object *obj);
+void set_bit(int x, int y, uint8_t map[]);
+void clr_bit(int x, int y, uint8_t map[]);
+void move_sprite(int x, int y, struct object *obj, uint8_t map[]);
+void fire_projectile(struct object *obj);
+void update_projectile_maps();
 /* Declare arrays containing coordinates for graphical objects from graphics.h*/
 extern int playerSpriteYs[];
 extern int playerSpriteXs[];
 
+extern uint8_t playerProjectileMap[512];
+extern uint8_t enemyProjectileMap[512];
