@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include <stdint.h>   /* Declarations of uint_32 and the like */
 #include <pic32mx.h>  /* Declarations of system-specific addresses etc */
 #include "game.h"			/* Declaration of functions, arrays etc for this game */
@@ -248,7 +249,7 @@ void display_update(void) {
 				continue;
 			
 			for(k = 0; k < 8; k++)
-				spi_send_recv(~font[c*8 + k]);
+				spi_send_recv(font[c*8 + k]);
 		}
 	}
 }

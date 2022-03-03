@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include <stdint.h>
 #include <pic32mx.h>
 #include "game.h"			/* Declaration of functions, arrays etc for this game */
