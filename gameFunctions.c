@@ -117,3 +117,11 @@ int projectile_hit(struct object *obj, uint8_t map[]){
 		}
 		return 0;
 }
+
+
+void num32asc( char * s, int n ) 
+{
+  int i;
+  for( i = 28; i >= 0; i -= 4 )
+    *s++ = "0123456789ABCDEF"[ (n >> i) & 15 ];
+}

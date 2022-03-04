@@ -52,8 +52,44 @@ void enemy_advance(int x, int y, int i);
 void enemy_move_sideways();
 void set_active_on(struct object *obj);
 void enemy_encounter(int x, int y, struct object *obj);
-void spawn_enemies(struct object obj[]);
 
 void main_menu();
 extern int runGame; 
 void start_game();
+void game_over();
+
+uint8_t READ_EEPROM();
+void WRITE_EEPROM(uint8_t score);
+void I2C_INIT();
+
+
+void I2C_INIT();
+
+void I2C_IDLE();
+
+uint8_t I2C_WRITE(uint8_t data);
+
+uint8_t I2C_READ();
+
+void I2C_ACK();
+
+void I2C_NACK();
+
+void I2C_START();
+  
+void I2C_RESTART();
+
+void I2C_STOP();
+
+void time2string( char *, int );
+
+void num32asc( char * s, int n );
+
+void spawn_enemies();
+
+void move_enemies();
+
+void check_enemies_hit();
+
+void check_player_hit();
+
